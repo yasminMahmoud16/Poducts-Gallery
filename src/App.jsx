@@ -1,19 +1,34 @@
-import { Button } from "@/components/ui/button"
-import { useDispatch, useSelector } from 'react-redux'
-import { toggleTheme } from './Redux/Slices/theme.js';
-import { Moon, SunDim } from 'lucide-react';
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import RouterLayout from "./layout/RouterLayout.jsx";
+import Home from "./pages/Home/Home.jsx";
+import { store } from "./Redux/store.js";
+import ThemeProvider from "./Theme/ThemeProvider.jsx";
+import { Provider } from "react-redux";
+
 
 export default function App() {
-  const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.theme);
 
 
-  return (
-    <>
-      <h1 className="bg-red-600 dark:bg-amber-100">hi</h1>
-      <Button onClick={() => dispatch(toggleTheme())}>
-        {theme === 'light' ? <Moon /> : <SunDim />}
-      </Button>
-    </>
-  );
+  const route = createHashRouter([
+    {
+      path: '', element: <RouterLayout />, children: [
+        { index: true, element:<Home/>}
+      ]
+    }
+  ])
+
+  return <>
+    
+
+    <Provider store={store}>
+      <ThemeProvider>
+        <RouterProvider router={route} />
+      </ThemeProvider>
+    </Provider>
+
+  </>
 }
+
+
+
+
