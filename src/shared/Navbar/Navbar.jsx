@@ -11,11 +11,11 @@ export default function Navbar() {
     const dispatch = useDispatch();
     const theme = useSelector((state) => state.theme.theme);
     return (
-            <nav className="fixed top-6 inset-x-4 h-16 bg-background border dark:bg-[#0d4679] dark:border-slate-700/70 max-w-screen-xl mx-auto rounded-full shadow dark:shadow-gray-50/40">
+        <nav className="fixed top-6 inset-x-4 h-16 bg-background border dark:bg-slate-850 dark:border-slate-700/70 max-w-screen-xl mx-auto rounded-full shadow dark:shadow-gray-50/10 z-10">
                 <div className="h-full flex items-center justify-between mx-auto px-4">
                     <div className="w-9 flex items-center gap-2">
 
-                        <img src={img.logo} alt="" />
+                        <img src={img.logo} alt="products gallery" />
                         
                         <div className="flex flex-col justify-center">
                             <p className="uppercase text-xs font-bold text-[#0d4679] dark:text-white ">products</p>
