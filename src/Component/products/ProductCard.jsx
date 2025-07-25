@@ -14,6 +14,7 @@ import { useState } from "react";
 import useSearchFilter from "@/Hooks/useSearchFilter.js";
 import DropDownSort from "../DropDownSort/DropDownSort.jsx";
 import useSortProducts from "@/Hooks/useSortProduct.js";
+import { Link } from "react-router-dom";
 
 export default function ProductCard() {
     const { allProducts, isLoading, isError, error } = useProducts();
@@ -51,7 +52,8 @@ export default function ProductCard() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-10 gap-6 justify-items-center">
-                        {sortedProducts?.map((pro) => (
+                            {sortedProducts?.map((pro) => (
+                                <Link to={`/product-details/${pro.id}`}>
                             <Card
                                 key={pro.id}
                                 className="relative bg-[#f4f4f5] dark:bg-slate-800 text-[#0d4679] dark:text-white shadow-md dark:shadow-gray-50/10 rounded-2xl w-70 h-77 md:w-60 lg:w-70 overflow-hidden transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-xl group py-1 cursor-pointer border-0"
@@ -82,6 +84,7 @@ export default function ProductCard() {
                                     </div>
                                 </CardFooter>
                             </Card>
+                            </Link>
                         ))}
                     </div>
                 </>
