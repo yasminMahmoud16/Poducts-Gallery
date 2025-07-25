@@ -1,63 +1,24 @@
 
 
-//   import { useQuery } from "@tanstack/react-query";
-// import axios from "axios";
-
-// export default function useProducts() {
-
-//     // 🔹 Fetch all products
-//     const fetchAllProducts = async () => {
-//         const res = await axios.get("https://fakestoreapi.com/products");
-//         return res.data;
-//     };
-
-//     const {
-//         data: allProducts = [],
-//         isLoading,
-//         isError,
-//         error,
-//     } = useQuery({
-//         queryKey: ["allProducts"],
-//         queryFn: fetchAllProducts,
-//     });
-
-//     // 🔹 Fetch a specific product by ID
-//     const fetchProductById = async (id) => {
-//         const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
-//         return res.data;
-//     };
-
-//     // 🔸 Hook consumer calls this when needed
-//     const getProductById = (id) => {
-//         return useQuery({
-//             queryKey: ["getProductById", id],
-//             queryFn: () => fetchProductById(id),
-//             enabled: !!id,
-//         });
-//     };
-
-//     return {
-//         allProducts,
-//         isLoading,
-//         isError,
-//         error,
-//         getProductById, // function to fetch a specific product
-//     };
-// }
-
-
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios"
 
 export default function useProducts() {
+    // const [filterProducts, setFilterProducts] = useState([]);
 
 
     // get products
 
-    const getProducts = async() => {
-        const res = await axios.get('https://fakestoreapi.com/products');
-        console.log(res.data);
-        return res.data
+    const getProducts = async () => {
+        try {
+            const res = await axios.get('https://fakestoreapi.com/products');
+            console.log(res.data);
+            return res.data
+            
+        } catch (error) {
+            console.log(error + " error from getProducts ");
+            
+        }
         
     }
 
@@ -73,6 +34,15 @@ export default function useProducts() {
     
 
 
+    // const filterProductsSearch = (searchKey) => {
+    //     const filter = allProducts.filter((pro) => {
+    //         pro.title.toLowerCase().includes(searchKey.toLowerCase())
+    //     }
+    //     );
+    //     setFilterProducts(filter)
+
+
+    // }
 
     // get spacific product
     // const getProductById = async ({ queryKey }) => {
@@ -97,6 +67,8 @@ export default function useProducts() {
         isLoading,
         isError,
         error,
+        // filterProductsSearch,
+        // filterProducts
         // productDetails,
         // loadingProduct
     }

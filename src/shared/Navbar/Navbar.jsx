@@ -11,7 +11,7 @@ export default function Navbar() {
     const dispatch = useDispatch();
     const theme = useSelector((state) => state.theme.theme);
     return (
-        <nav className="fixed top-6 inset-x-4 h-16 bg-background border dark:bg-slate-850 dark:border-slate-700/70 max-w-screen-xl mx-auto rounded-full shadow dark:shadow-gray-50/10 z-10">
+        <nav className="fixed top-6 inset-x-4 h-16 bg-background  dark:bg-slate-850 dark:border-slate-700/70 max-w-screen-xl mx-auto rounded-full shadow-lg dark:shadow-gray-50/10 z-10 ">
                 <div className="h-full flex items-center justify-between mx-auto px-4">
                     <div className="w-9 flex items-center gap-2">
 
