@@ -1,8 +1,11 @@
-import { Moon, SunDim, SunMedium, Heart, ShoppingBag } from "lucide-react"
+import { Moon, SunDim, SunMedium, Heart, ShoppingBag, Search, ChevronDown, ArrowDownWideNarrow } from "lucide-react"
 export {
     Moon,
     SunDim,
     SunMedium,
     Heart,
-    ShoppingBag
+    ShoppingBag,
+    Search,
+    ChevronDown,
+    ArrowDownWideNarrow
 }
