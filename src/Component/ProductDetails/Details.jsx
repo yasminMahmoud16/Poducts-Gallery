@@ -42,9 +42,9 @@ export default function Details() {
                 </div>
             ) : (
                 <div className="container pt-28">
-                    <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl flex flex-col items-center ">
+                    <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl flex flex-col items-center p-8 ">
                         <div className="grid rid-cols-1 items-center justify-items-center md:grid-cols-6 p-3">
-                                <div className="col-span-3  flex flex-col items-center justify-center gap-4">
+                                <div className="col-span-3  flex flex-col items-center justify-center gap-4 mb-4">
                                 <div className=" md:w-2/3 flex items-center   justify-center ">
                                     <img
                                         src={details.image}
@@ -55,7 +55,7 @@ export default function Details() {
                             </div>
 
                             <div className="col-span-3 flex flex-col justify-center">
-                                <h2 className="text-2xl font-bold">{details.title}</h2>
+                                <h2 className="text-2xl font-bold mb-2">{details.title}</h2>
                                 <p className="text-xl font-medium">{details.category}</p>
                                 <div className="flex flex-col justify-center gap-4">
                                     <p className="mt-4 text-orange-500 font-bold text-xl">
