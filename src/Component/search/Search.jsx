@@ -5,7 +5,7 @@ export default function Search({ search, setSearch }) {
 
 
     return <>
-        <div className="relative w-full max-w-2xl">
+        <div className="relative w-full max-w-2xl ">
             <icon.Search className="absolute top-1/2 left-4 -translate-y-1/2 text-gray-300 font-bold" size={20} />
 
             <Input

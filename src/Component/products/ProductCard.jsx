@@ -46,7 +46,7 @@ export default function ProductCard() {
                 </div>
             ) : (
                 <>
-                    <div className="flex items-center justify-center gap-2 mb-5">
+                    <div className="flex items-center justify-center gap-2 mb-7">
                         <Search search={search} setSearch={setSearch} />
                         <DropDownSort selectSort={selectSort} setSlectSort={setSlectSort} />
                     </div>

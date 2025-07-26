@@ -6,6 +6,9 @@ import { Button } from "@/Components/ui/button.jsx";
 import SizeBtn from "./SizeBtn.jsx";
 import ActionsBtn from "./ActionsBtn.jsx";
 import Rating from "./rating.jsx";
+import LoadingLottie from "../lotties/LoadingLottie.jsx";
+import ProductCard from "../products/ProductCard.jsx";
+import RelatedProducts from "./RelatedProducts.jsx";
 
 export default function Details() {
     const { id } = useParams();
@@ -28,74 +31,69 @@ export default function Details() {
 
 
 
-    if (isLoading) return <p className="text-center">Loading...</p>;
-    if (isError || !details) return <p className="text-center text-red-500">Failed to load product.</p>;
+    // if (isLoading) return <p className="text-center">Loading...</p>;
+    // if (isError || !details) return <p className="text-center text-red-500">Failed to load product.</p>;
 
-    return <>
-        <div className="container pt-28 ">
-
-            
-
-            <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl">
-
-                <div className="grid rid-cols-1 md:grid-cols-6    p-3 ">
-            <div className="col-span-3   flex flex-col items-center justify-center  gap-4">
-
-                    <div className="w-2/3">
-
-                            <img src={details.image} alt="Image" className="rounded-md  w-full object-cover" />
-
+    return (
+        <>
+            {isLoading ? (
+                <div className=" min-h-screen flex items-center justify-center bg-[#f4f4f5]/60 dark:bg-[#1d293d]">
+                    <div className="">
+                        <LoadingLottie />
                     </div>
-
-
-
                 </div>
-                
+            ) : (
+                <div className="container pt-28">
+                    <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl">
+                        <div className="grid rid-cols-1 md:grid-cols-6 p-3">
+                            <div className="col-span-3 flex flex-col items-center justify-center gap-4">
+                                <div className="w-2/3">
+                                    <img
+                                        src={details.image}
+                                        alt="Image"
+                                        className="rounded-md w-full object-cover"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="col-span-3 flex flex-col justify-center">
+                                <h2 className="text-2xl font-bold">{details.title}</h2>
+                                <p className="text-xl font-medium">{details.category}</p>
+                                <div className="flex flex-col justify-center gap-4">
+                                    <p className="mt-4 text-orange-500 font-bold text-xl">
+                                        ${details.price}
+                                    </p>
+                                    <SizeBtn />
+                                    <ActionsBtn />
+                                    <div>
+                                        <h2 className="capitalize font-goldman font-medium">
+                                            description & fit
+                                        </h2>
+                                        <p className="text-gray-600 leading-normal mt-2 font-poppins text-sm">
+                                            {details.description}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <Rating details={details} />
+                                        </div>
 
 
+                                        
+                                </div>
 
-
-
-
-
-
-
-
-
-                <div className="col-span-3 flex flex-col justify-center">
-                        <h2 className="text-2xl font-bold">{details.title}</h2>
-                        <p className="text-xl font-medium">{details.category}</p>
-                    <div className="flex flex-col  justify-center gap-4" >
-                        <p className="mt-4 text-orange-500 font-bold text-xl">${details.price}</p>
-
-                        <SizeBtn/>
-
-
-                        <ActionsBtn />
-                        
-                        <div>
-                            <h2 className="capitalize font-goldman font-medium ">description & fit</h2>
-                                <p className="text-gray-600 leading-normal mt-2 font-poppins text-sm">{details.description}</p>
+                            </div>
                             </div>
                             
-                            <div>
-                                <Rating details={details} />
-                            </div>
 
+
+                           <RelatedProducts/>
                     </div>
-            </div>
                 </div>
+            )}
+        </>
+    );
 
 
 
-            </div>
 
-
-
-
-        </div>
-    </>
-
-
-    
-}
+}  
