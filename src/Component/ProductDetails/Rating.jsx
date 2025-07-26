@@ -2,7 +2,7 @@ import React from 'react'
 import * as icon from '@/assets/icons/icons.js'
 
 export default function Rating({ details }) {
-    const { rate = 0, count = 0 } = details.rating || {};
+    const { rate = 0, count = 0 } = details?.rating || {};
 
     const roundedRate = Math.round(rate); 
 

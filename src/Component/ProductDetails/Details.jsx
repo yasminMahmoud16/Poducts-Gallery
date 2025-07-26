@@ -9,6 +9,7 @@ import Rating from "./rating.jsx";
 import LoadingLottie from "../lotties/LoadingLottie.jsx";
 import ProductCard from "../products/ProductCard.jsx";
 import RelatedProducts from "./RelatedProducts.jsx";
+import ErrorLottie from "../lotties/ErrorLottie.jsx";
 
 export default function Details() {
     const { id } = useParams();
@@ -23,7 +24,7 @@ export default function Details() {
         }
     };
 
-    const { data: details, isLoading, isError } = useQuery({
+    const { data: details, isLoading, isError, error } = useQuery({
         queryKey: ['getSingleProduct', id],
         queryFn: getSingleProduct
     });
@@ -32,62 +33,74 @@ export default function Details() {
 
 
 
+
     return (
         <>
-            {isLoading ? (
-                <div className=" min-h-screen flex items-center justify-center bg-[#f4f4f5]/60 dark:bg-[#1d293d]">
-                    <div className="">
-                        <LoadingLottie />
-                    </div>
-                </div>
-            ) : (
-                <div className="container pt-28">
-                    <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl flex flex-col items-center p-8 ">
-                        <div className="grid rid-cols-1 items-center justify-items-center md:grid-cols-6 p-3">
-                                <div className="col-span-3  flex flex-col items-center justify-center gap-4 mb-4">
-                                <div className=" md:w-2/3 flex items-center   justify-center ">
-                                    <img
-                                        src={details.image}
-                                        alt="Image"
-                                        className="rounded-md w-60 md:w-full object-cover"
-                                    />
-                                </div>
+            {isError ? (
+                            <div className="flex flex-col items-center justify-center text-center gap-2 mx-auto pt-28">
+                                <ErrorLottie />
+                                <p className="text-md text-gray-500 dark:text-gray-200 font-semibold capitalize">
+                                    {error.message} please try again
+                                </p>
                             </div>
-
-                            <div className="col-span-3 flex flex-col justify-center">
-                                <h2 className="text-2xl font-bold mb-2">{details.title}</h2>
-                                <p className="text-xl font-medium">{details.category}</p>
-                                <div className="flex flex-col justify-center gap-4">
-                                    <p className="mt-4 text-orange-500 font-bold text-xl">
-                                        ${details.price}
-                                    </p>
-                                    <SizeBtn />
-                                    <ActionsBtn />
-                                    <div>
-                                        <h2 className="capitalize font-goldman font-medium">
-                                            description & fit
-                                        </h2>
-                                        <p className="text-gray-600 leading-normal mt-2 font-poppins  md:text-sm">
-                                            {details.description}
-                                        </p>
+            ) : <>
+                    {isLoading ? (
+                        <div className=" min-h-screen flex items-center justify-center bg-[#f4f4f5]/60 dark:bg-[#1d293d]">
+                            <div className="">
+                                <LoadingLottie />
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="container pt-28">
+                            <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl flex flex-col items-center p-8 ">
+                                <div className="grid rid-cols-1 items-center justify-items-center md:grid-cols-6 p-3">
+                                    <div className="col-span-3  flex flex-col items-center justify-center gap-4 mb-4">
+                                        <div className=" md:w-2/3 flex items-center   justify-center ">
+                                            <img
+                                                src={details?.image}
+                                                alt="Image"
+                                                className="rounded-md w-60 md:w-full object-cover"
+                                            />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <Rating details={details} />
+
+                                    <div className="col-span-3 flex flex-col justify-center">
+                                        <h2 className="text-2xl font-bold mb-2">{details?.title}</h2>
+                                        <p className="text-xl font-medium">{details?.category}</p>
+                                        <div className="flex flex-col justify-center gap-4">
+                                            <p className="mt-4 text-orange-500 font-bold text-xl">
+                                                ${details?.price}
+                                            </p>
+                                            <SizeBtn />
+                                            <ActionsBtn />
+                                            <div>
+                                                <h2 className="capitalize font-goldman font-medium">
+                                                    description & fit
+                                                </h2>
+                                                <p className="text-gray-600 leading-normal mt-2 font-poppins  md:text-sm">
+                                                    {details?.description}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <Rating details={details} />
+                                            </div>
+
+
+
                                         </div>
 
-
-                                        
+                                    </div>
                                 </div>
 
-                            </div>
-                            </div>
-                            
 
 
-                           <RelatedProducts/>
-                    </div>
-                </div>
-            )}
+                                <RelatedProducts />
+                            </div>
+                        </div>
+                    )}
+            </>
+                        }
+            
         </>
     );
 
