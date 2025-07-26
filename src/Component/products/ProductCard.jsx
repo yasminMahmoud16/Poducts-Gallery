@@ -51,7 +51,7 @@ export default function ProductCard() {
                         <DropDownSort selectSort={selectSort} setSlectSort={setSlectSort} />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-10 gap-6 justify-items-center">
+                    <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-10 gap-6 justify-items-center">
                             {sortedProducts?.map((pro) => (
                                 <Link to={`/product-details/${pro.id}`}>
                             <Card

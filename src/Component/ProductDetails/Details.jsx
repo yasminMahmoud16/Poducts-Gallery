@@ -31,8 +31,6 @@ export default function Details() {
 
 
 
-    // if (isLoading) return <p className="text-center">Loading...</p>;
-    // if (isError || !details) return <p className="text-center text-red-500">Failed to load product.</p>;
 
     return (
         <>
@@ -44,14 +42,14 @@ export default function Details() {
                 </div>
             ) : (
                 <div className="container pt-28">
-                    <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl">
-                        <div className="grid rid-cols-1 md:grid-cols-6 p-3">
-                            <div className="col-span-3 flex flex-col items-center justify-center gap-4">
-                                <div className="w-2/3">
+                    <div className="bg-[#f4f4f5] dark:bg-[#1d293d] dark:shadow-lg dark:shadow-gray-50/10 shadow rounded-2xl flex flex-col items-center ">
+                        <div className="grid rid-cols-1 items-center justify-items-center md:grid-cols-6 p-3">
+                                <div className="col-span-3  flex flex-col items-center justify-center gap-4">
+                                <div className=" md:w-2/3 flex items-center   justify-center ">
                                     <img
                                         src={details.image}
                                         alt="Image"
-                                        className="rounded-md w-full object-cover"
+                                        className="rounded-md w-60 md:w-full object-cover"
                                     />
                                 </div>
                             </div>
@@ -69,7 +67,7 @@ export default function Details() {
                                         <h2 className="capitalize font-goldman font-medium">
                                             description & fit
                                         </h2>
-                                        <p className="text-gray-600 leading-normal mt-2 font-poppins text-sm">
+                                        <p className="text-gray-600 leading-normal mt-2 font-poppins  md:text-sm">
                                             {details.description}
                                         </p>
                                     </div>
