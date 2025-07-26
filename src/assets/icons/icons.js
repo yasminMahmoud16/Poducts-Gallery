@@ -1,4 +1,4 @@
-import { Moon, SunDim, SunMedium, Heart, ShoppingBag, Search, ChevronDown, ArrowDownWideNarrow } from "lucide-react"
+import { Moon, SunDim, SunMedium, Heart, ShoppingBag, Search, ChevronDown, ArrowDownWideNarrow, Star } from "lucide-react"
 export {
     Moon,
     SunDim,
@@ -7,5 +7,6 @@ export {
     ShoppingBag,
     Search,
     ChevronDown,
-    ArrowDownWideNarrow
+    ArrowDownWideNarrow,
+    Star
 }

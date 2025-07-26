@@ -5,6 +5,7 @@ import { store } from "./Redux/store.js";
 import ThemeProvider from "./Theme/ThemeProvider.jsx";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Details from "./Component/ProductDetails/Details.jsx";
 
 
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
   const route = createHashRouter([
     {
       path: '', element: <RouterLayout />, children: [
-        { index: true, element:<Home/>}
+        { index: true, element:<Home/>},
+        { path: '/product-details/:id', element:<Details/>},
       ]
     }
   ])
