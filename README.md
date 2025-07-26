@@ -1,12 +1,48 @@
-# React + Vite
+## 📝 Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **Products Gallery** that displays a collection of products. Each product card includes:
 
-Currently, two official plugins are available:
+- Product image  
+- Name  
+- Price  
+- Cart action buttons  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project consists of two pages:  
+- 🏠 Home Page  
+- 📄 Product Details Page (with dynamic routing)
 
-## Expanding the ESLint configuration
+The interface is designed to be interactive, responsive, and visually consistent across devices.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+- 🌙 Dark mode state management handled by Redux Toolkit  
+- 🔍 Filter products by name  
+- Sort products by:
+  - Price (High to Low / Low to High)
+  - Name (A to Z)  
+- 🔗 Dynamic route for product details by ID  
+- ⏳ Loading and  Error state handling  
+- 🧠 Custom Hooks for logic separation
+
+---
+
+## 📸 Screenshots or Demo
+
+🔗 [Live Demo](https://yasminmahmoud16.github.io/Poducts-Gallery/)
+
+---
+
+## 🧱 Tech Stack Used
+
+- ⚛️ React.js – Frontend framework  
+- 🎨 Tailwind CSS – Utility-first CSS framework for styling  
+- 💄 shadcn/ui – Beautifully designed components built on Radix UI and Tailwind  
+- 📦 React Query – Efficient data fetching and caching  
+- 🧰 Redux Toolkit – State management (including dark mode)  
+- 🔁 React Router – Routing and navigation  
+- 🖼️ Lucide React – Interactive icon library  
+- 🛠️ Axios – HTTP client for API requests  
+- 🎞️ Lottie – For animated loading indicators  
+- ⚡ Vite – Fast development server and bundler
